@@ -1,0 +1,28 @@
+body{
+	background:rgba(200,200,200);
+}
+h1{
+	text-align: center;
+	width:100%;
+	margin-top:4rem;
+	font-size:3rem;
+
+}.main{
+	width:30%;
+	height:500px;
+	margin:5rem auto;
+	background:rgb(240,240,240);
+    backdrop-filter:blur(3px);
+    border:2px solid grey;
+    border-radius:20px 0 20px 0;
+    box-shadow:5px 5px 100px rgb(50,50,50);
+}
+ul{
+	padding-top: 1rem;
+	border:3px solid grey;
+	font-size:1.5rem;
+	width:300px;
+	margin:2rem auto;
+	height:300px;
+	border-radius:20px 0 20px 0;
+}
