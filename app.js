@@ -2,6 +2,7 @@ const express = require('express');//modulo express
 const path = require('path');//camino --- rutas
 const app = express();//instancia de express
 const port = 4000;//port
+const fs = require('fs');
 
 app.use(express.static(path.join(__dirname,'/static')));//ruta archivos estaticos 
 
@@ -13,9 +14,18 @@ app.use((req, res, next) => {
     next();
 });
 
-app.get('/',(req,res)=>{ //-----------endPoint----------------
+app.get('/', async(req,res)=>{ //-----------endPoint----------------
 	try{//esto sirve para intentar ejecutar codigo o instrucciones de codigo
-    res.render('index');
+   const ruta = 'static/imagenes';
+   await fs.readdir(ruta,(err,files)=>{
+  if(err){
+  console.error(`Error al leer archivos`);
+  }else{
+  console.log(`imagenes : ${files[0]}`);
+  res.render('index',{files});
+  }
+   }) 
+  
 	}catch(error){//esto sirve para atrapar el error en caso de que ocurra uno
      console.error(error.message);
      res.status(500).send('Error en el servidor');
